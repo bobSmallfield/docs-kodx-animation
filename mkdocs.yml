@@ -1,0 +1,14 @@
+site_name: KODX Animation Docs
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  palette:
+    scheme: slate   # o slate
+    primary: brown
+    accent: orange
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
