@@ -1,0 +1,990 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../10-settings/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Scripting - KODX Animation Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="brown" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#scripting" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="KODX Animation Docs" class="md-header__button md-logo" aria-label="KODX Animation Docs" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            KODX Animation Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Scripting
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="KODX Animation Docs" class="md-nav__button md-logo" aria-label="KODX Animation Docs" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    KODX Animation Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KODX Animation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripting
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instructions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code instructions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instruction-for-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instruction for x
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instruction-wait-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instruction wait x
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#line-break" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Line break
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminal-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal instructions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Terminal instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminal-open-x-sound-and-terminal-close-x-sound" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terminal open x {sound} and terminal close x {sound}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-write-text-x-color-sound" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terminal write |text| x color {sound}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-n-sound" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terminal n {sound}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-cls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terminal cls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Additional instructions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sound-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sound x
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-sounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available sounds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-example-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Example #1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-example-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Example #2
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instructions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code instructions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instruction-for-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instruction for x
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instruction-wait-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instruction wait x
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#line-break" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Line break
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminal-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal instructions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Terminal instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminal-open-x-sound-and-terminal-close-x-sound" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terminal open x {sound} and terminal close x {sound}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-write-text-x-color-sound" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terminal write |text| x color {sound}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-n-sound" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terminal n {sound}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-cls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        terminal cls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal usage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Additional instructions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sound-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sound x
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-sounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available sounds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-example-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Example #1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-example-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Example #2
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="scripting">Scripting</h1>
+<h2 id="how-it-works">How it works</h2>
+<p>As said before, this is not an animation program like others. <em>KODX Animation</em> is a generator. To create animations from your scripts, you must provide instructions on how the text, sounds, terminal and other elements will behave.</p>
+<h2 id="workflow">Workflow</h2>
+<p>It is <strong>highly</strong> recommended to write the code in a real editor (VSC, Notepad++, Cursor...), and then copy/paste it into the textarea in the animator. That way, you will be able to make the most of the autocomplete function and visual style you're already used to. Nevertheless, no worries, you will still be able to edit the code in the program.</p>
+<h2 id="instructions">Instructions</h2>
+<p>Instructions are double-hashed (<code>##</code>) comments at the end of each line of your code. Generally, you will provide instructions indicating a <code>property</code> followed by a <code>value</code>, and separated with a space, although there are exceptions for this.</p>
+<p>The best way to illustrate the concept of instructions is with a quick example:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Type your code here! ## wait 5 for 25 wait 10</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is a test&#39;</span><span class="p">)</span> <span class="c1">## wait 5 for voice wait 10</span>
+</code></pre></div>
+<p>Don't worry about the instructions themselves yet. Instead, note how <strong>every line</strong> has an instructions indication.</p>
+<p>This is crucial. <strong>Every line in your code must have at least one instruction. Otherwise, the animation will not export.</strong></p>
+<p>You can add a space between the last character of your code and the <code>##</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello world&#39;</span><span class="p">)</span> <span class="c1">## for 15</span>
+</code></pre></div>
+<p>Or you can keep them together:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello world&#39;</span><span class="p">)</span><span class="c1">## for 15</span>
+</code></pre></div>
+<p>If you ever need to add visible spaces after your line, just add one more:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello world&#39;</span><span class="p">)</span>   <span class="c1">## for 15</span>
+</code></pre></div>
+<p><em>(I wanted 2 spaces, so I typed 3)</em></p>
+<h2 id="code-instructions">Code instructions</h2>
+<p>There's two instructions you will use to indicate how you want your main code to be animated.</p>
+<h3 id="instruction-for-x">Instruction <code>for x</code></h3>
+<p><em>(being <code>x</code> the number of frames you want the animation to last)</em></p>
+<p>Your code will be "typed" for <code>x</code> amount of frames. Keyboard sounds will adapt to the speed automatically. Zero is <strong>not</strong> a valid amount and will throw an error.</p>
+<p>Optionally, you can set the line to be narrated using <code>for voice</code>. The animation will be as long as the generated audio.</p>
+<p>An optional setting you can apply to <code>for voice</code> is <code>speed</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Valid code ## for voice</span>
+<span class="c1"># Valid code ## for voice +35%</span>
+<span class="c1"># Valid code ## for voice -15%</span>
+<span class="c1"># Invalid code ## for voice 35%</span>
+</code></pre></div>
+<p>The default value of speed is 20%, which is a natural talking pace.</p>
+<h3 id="instruction-wait-x">Instruction <code>wait x</code></h3>
+<p><em>(being <code>x</code> the number of frames you want the code to wait for)</em></p>
+<p>Nothing will happen for <code>x</code> frames. Use it to leave some air between lines and let the viewer process. Zero is <strong>not</strong> a valid amount and will throw an error.</p>
+<p>It is usually used both <strong>before</strong> and <strong>after</strong> a <code>for</code> animation, but you can partially or completely skip it to create different styles and paces.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">my_func</span><span class="p">():</span> <span class="c1">## wait 5 for voice wait 6</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span> <span class="c1">## wait 3 for voice +35%</span>
+    <span class="c1"># This will print a line ## for 20</span>
+    <span class="k">return</span> <span class="mi">0</span> <span class="c1">## for voice wait 15</span>
+</code></pre></div>
+<h3 id="line-break">Line break</h3>
+<p>You can use the <code>wait</code> instruction to create line breaks. Make sure never to leave a blank line without at least a <code>wait</code> instruction!</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First line&quot;</span><span class="p">)</span> <span class="c1">## for 18 wait 4</span>
+<span class="c1">## wait 5</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Third line&quot;</span><span class="p">)</span> <span class="c1">## wait 5 for 18 wait 10</span>
+</code></pre></div>
+<h2 id="terminal-instructions">Terminal instructions</h2>
+<p>All terminal instructions begin with the keyword <code>terminal</code>. Terminal instructions are all written in one line. If this feels unconfortable for you (it will, when you're dealing with long commands), you can look up how you can enable word wrap in your preferred code editor (<em>in VSC, you can do it by pressing <code>Alt</code>+<code>Z</code></em>)</p>
+<p>When you're using the terminal in your animation, <strong>never begin a line with a terminal instruction. It will throw an error.</strong> <a href="#terminal-usage">Here is</a> what you can do instead.</p>
+<p>Here below you can see how the different terminal instructions work. Note that <code>x</code> represents the number of frames you want the animation to be, and parameters between curly brackets (<code>{example}</code>) are optional: you can add them or not, it will work both ways.</p>
+<h3 id="terminal-open-x-sound-and-terminal-close-x-sound"><code>terminal open x {sound}</code> and <code>terminal close x {sound}</code></h3>
+<p>These are two of the three <strong>only</strong> async instructions in <em>KODX Animation</em>, which means that other instructions can start or keep running while these are.</p>
+<p>However, you won't normally want other things happening while the terminal is opening or closing. To prevent the default async behaviour, add a <code>wait x</code> instruction immediately after these instructions (set the x to be the same as the one in the open/close instruction)</p>
+<p>A normal amount of frames for this animation would be <code>15</code>. Tweak this value to open/close the terminal faster/slower.</p>
+<p>You can optionally modify the <code>sound</code> that the terminal will make while opening/closing. The default sound for this animation is <code>whoosh</code> (see all available sounds <a href="#available-sounds">here</a>). If you don't specify a sound for this instruction, the default will be played. You can also set the sound to <code>none</code>, and no sound will be played.</p>
+<p>Here are a couple of examples of the usage of <code>terminal open x</code> and <code>terminal close x</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">## terminal open 15 wait 15</span>
+<span class="c1">## terminal close 15 none wait 15</span>
+<span class="c1">## terminal open 20 error3 wait 20</span>
+</code></pre></div>
+<h3 id="terminal-write-text-x-color-sound"><code>terminal write |text| x color {sound}</code></h3>
+<p>With this instruction, you will be able to type text on the terminal just like you did with the code.</p>
+<p>First, specify the text you want to be <strong>added</strong> between two pipes (<code>|</code>). This text will be inserted right after what is already written (for line breaks, see <a href="#terminal-n-sound"><code>terminal n</code></a>)</p>
+<blockquote>
+<p>To replicate the style of a real terminal, you can add a <em>greater than</em> symbol (<code>&gt;</code>) before each terminal line</p>
+</blockquote>
+<p>After writing your text, indicate the amount of frames you want your animation to last. Zero is <strong>not</strong> a valid amount.</p>
+<p>Immediately after, indicate the color you want your text to be. Available colors are <code>white</code>, <code>grey</code>, <code>red</code>, <code>green</code>, <code>blue</code>, and <code>yellow</code>. </p>
+<blockquote>
+<p>Parameter <code>color</code> is commonly forgotten when coding. Make sure to include it to prevent errors!</p>
+</blockquote>
+<p>Finally, you can decide to specify the sound that typing will make. This is an optional parameter. Default value is <code>beep</code>, and you can change it to <code>key</code> to use mechanical keyboard sounds; or to <code>none</code> to play no sound.</p>
+<p>An example of usage can be found in the next section.</p>
+<h3 id="terminal-n-sound"><code>terminal n {sound}</code></h3>
+<p>This instruction will do a line break in the terminal. If you don't use it, texts from the different <code>write</code> instructions will all be inserted in the same line.</p>
+<p>Regarding the sound, this is, again, an optional parameter. The default value is <code>beep-intro</code>. You can use <code>key-intro</code> for a mechanical keyboard enter key sound. You can also set it to <code>none</code> for no sound at all. Finally, you can also use any of the sounds in the <a href="#available-sounds">sound list</a>.</p>
+<p>Here is a practical example using different styles and sounds, and making use of the <code>terminal write</code> and <code>terminal n</code> instructions:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">## wait 5 terminal open 15 wait 15 terminal write |&gt; Insert your name| 20 yellow wait 4 terminal n terminal write |&gt; | 1 grey wait 9 terminal write |Bob| 6 white key wait 7 terminal n key-intro wait 10</span>
+</code></pre></div>
+<h3 id="terminal-cls"><code>terminal cls</code></h3>
+<p>This instruction will clear the terminal.</p>
+<p><strong>Closing the terminal does not clear it</strong>. The text in the terminal will be stored even if you close and reopen the terminal. In order to clear the terminal after closing it, just execute both instructions in the correct order:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">## terminal close 15 wait 15 terminal cls</span>
+</code></pre></div>
+<p>You can also not clear the terminal after closing it to continue adding lines later, which is a common practise as well.</p>
+<h3 id="terminal-usage">Terminal usage</h3>
+<p><strong>Never begin a line with a terminal instruction. It will throw an error and your animation will not export properly.</strong> Instead, use the terminal instructions in a line after other non-terminal instructions:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span> <span class="c1">## for 20 terminal open 15 wait 15 ...</span>
+</code></pre></div>
+<p>Or even better, start a line with a <code>wait</code> instruction:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">## wait 5 terminal open 15 wait 15 ...</span>
+</code></pre></div>
+<h2 id="additional-instructions">Additional instructions</h2>
+<h3 id="sound-x"><code>sound x</code></h3>
+<p>This is the third and last async instruction in this program (see <a href="#terminal-open-x-sound-and-terminal-close-x-sound">terminal open/close</a> for more info about async instructions)</p>
+<p>Adding a sound won't freeze the program; you will still be able to run other instructions.</p>
+<p><a href="#available-sounds">Here are</a> all the available sounds.</p>
+<h2 id="available-sounds">Available sounds</h2>
+<ul>
+<li><code>notification</code></li>
+<li><code>get_out</code></li>
+<li><code>error-windows</code></li>
+<li><code>error1</code></li>
+<li><code>error3</code></li>
+<li><code>whoosh</code></li>
+<li><code>whoosh-long</code></li>
+<li><code>whoosh-short</code></li>
+</ul>
+<h2 id="code-example-1">Code Example #1</h2>
+<p>In this example, you'll see an advanced, real use of the instructions that apply mainly on code. <a href="https://www.instagram.com/reel/DPnw_VOkw-G/">Click here</a> to see the animation result. You will get used to 'guessing' the amount of frames you want a certain animation to last. Anyways, there's always an amount of trial an error.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Please help me ## for voice</span>
+<span class="c1"># find the mistake ## for voice</span>
+<span class="c1"># in this code! ## for voice wait 14</span>
+<span class="c1">## wait 5</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="c1">## wait 6 for 10 wait 15</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mf">0.3</span><span class="p">:</span> <span class="c1">## wait 5 for 15 wait 20</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;yes&quot;</span><span class="p">)</span> <span class="c1">## wait 4 for 15 wait 12</span>
+<span class="k">else</span><span class="p">:</span> <span class="c1">## wait 4 for 10 wait 10</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;no&quot;</span><span class="p">)</span> <span class="c1">## wait 5 for 13 wait 15</span>
+<span class="c1">## wait 5 terminal open 15 wait 15 terminal write |&gt; no| 5 yellow wait 18</span>
+</code></pre></div>
+<h2 id="code-example-2">Code Example #2</h2>
+<p>Here, you'll see an example with a more advanced usage of the terminal. You can watch the animation result <a href="https://www.instagram.com/reel/DQOAhylEY_k/">here</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># I coded Reddit ## for voice wait 13</span>
+<span class="c1"># Look: ## wait 4 for voice wait 10</span>
+<span class="c1">## wait 5</span>
+<span class="n">post</span><span class="p">(</span><span class="s2">&quot;I like dogs&quot;</span><span class="p">)</span> <span class="c1">## wait 5 for 15 wait 15</span>
+<span class="c1">## wait 5 terminal open 15 notification wait 10 terminal write |&gt; meowLvr73| 15 blue none wait 14 terminal n none terminal write |  Actually...| 10 yellow wait 13 terminal n terminal write |  Cats are superior.| 18 yellow wait 15 terminal n none terminal n notification terminal write |&gt; petExpert08| 15 blue none wait 16 terminal n none terminal write |  You’re both wrong.| 20 yellow wait 14 terminal n none terminal write |  Goldfish are the best| 23 yellow wait 15 terminal n error3 terminal cls wait 4 terminal write |&gt; Thread deleted by mods.| 25 red wait 15</span>
+<span class="c1"># Easy! ## wait 3 for voice wait 15</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
